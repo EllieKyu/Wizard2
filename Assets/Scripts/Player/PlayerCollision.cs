@@ -61,24 +61,7 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag(BULLET_TAG))
-        {
-            bullet = collision.transform.gameObject;
-            HitByBullet();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag(HAZARD_TAG))
-        {
-            Death();
-        }
-    }
-
-    private void HitByBullet()
+    public void HitByBullet()
     {
         if (catchTheBullet)
         {
@@ -89,6 +72,11 @@ public class PlayerCollision : MonoBehaviour
         {
             Death();
         }
+    }
+
+    public void TouchHazard()
+    {
+        Death();
     }
 
     private void Death()

@@ -15,9 +15,15 @@ public class BulletVacuumHole : MonoBehaviour
 
     public BulletVaccuumMode suckMode;
 
-    public float forcePower = 1500f;
-
     private float suckDirection = 1;
+
+    public float maxForce = 2000;
+    public float minForce = 1500;
+
+    public CircleCollider2D myCirlce;
+
+    public float InitialDistance;
+    public float CalculationDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +54,15 @@ public class BulletVacuumHole : MonoBehaviour
     {
         foreach (var rBody in rigidbody2Ds)
         {
-            Vector2 force = rBody.transform.position - transform.position;
+            var distance = rBody.transform.position - transform.position;
+            Vector2 force = distance;
             force = force.normalized;
-            force *= forcePower * Time.deltaTime;
+            force *= Time.deltaTime;
             force *= suckDirection;
+            force *= CalculateForce(distance.magnitude);
+            InitialDistance = distance.magnitude;
 
             rBody.AddForce(force);
-
-
         }
     }
 
@@ -89,16 +96,23 @@ public class BulletVacuumHole : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private float CalculateForce(float distanceFromCenter)
     {
-        foreach (var rBody in rigidbody2Ds)
-        {
-            Vector2 force = rBody.transform.position - transform.position;
-            force = force.normalized;
-            force *= forcePower * Time.deltaTime;
+        var maxDistance = myCirlce.radius * transform.localScale.x;
 
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position, transform.position + new Vector3(force.x, force.y, 0));
+        var distanceAlpha = distanceFromCenter / maxDistance;
+
+        CalculationDistance = distanceAlpha;
+
+        if (suckMode == BulletVaccuumMode.Suck)
+        {
+            distanceAlpha = 1 - distanceAlpha;
         }
+
+        var force = Mathf.Lerp(minForce, maxForce, distanceAlpha);
+
+        print(force);
+
+        return force;
     }
 }

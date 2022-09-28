@@ -114,4 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2Ds: []
   suckMode: 0
-  forcePower: 1500
+  maxForce: 12000
+  minForce: 1500
+  myCirlce: {fileID: 8142037931730149778}
+  InitialDistance: 0
+  CalculationDistance: 0

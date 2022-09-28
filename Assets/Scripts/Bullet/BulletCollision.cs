@@ -14,16 +14,14 @@ public class BulletCollision : MonoBehaviour
     [Range(-3, 3f)]
     float MaxPitch;
 
-    // Start is called before the first frame update
     void Start()
     {
         myAudioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,5 +30,10 @@ public class BulletCollision : MonoBehaviour
         if (myAudioSource.pitch == 0.0f) //< if it randoms to 0 it will be silent
             myAudioSource.pitch = 1.0f;
         myAudioSource.Play();
+
+        if (collision.transform.root.CompareTag("Player"))
+        {
+            collision.transform.root.GetComponentInChildren<PlayerCollision>().HitByBullet();
+        }
     }
 }

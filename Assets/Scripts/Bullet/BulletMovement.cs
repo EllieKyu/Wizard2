@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,21 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
 
     public float BulletSpeed;
+    public float maxVelocity = 20;
 
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myRigidbody2D.AddForce(transform.up * BulletSpeed);
+    }
+
+    private void Update()
+    {
+        ClampVelocity();
+    }
+
+    private void ClampVelocity()
+    {
+        myRigidbody2D.velocity = Vector2.ClampMagnitude(myRigidbody2D.velocity, maxVelocity);
     }
 }

@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpeed: 500
+  maxVelocity: 20
 --- !u!96 &6533515613093491231
 TrailRenderer:
   serializedVersion: 2
