@@ -50,7 +50,8 @@ public class PlayerShoot : MonoBehaviour
         Vector3 position = transform.position;
         position += aimDirection * bulletSpawnOffset;
 
-        GameObject gameObj = Instantiate(Bullet, position, rotation);
+        GameObject bulletObj = Instantiate(Bullet, position, rotation);
+        bulletObj.GetComponentInChildren<BulletMovement>().InitBullet();
 
         bulletCount--;
 

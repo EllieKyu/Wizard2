@@ -10,10 +10,19 @@ public class BulletMovement : MonoBehaviour
     public float BulletSpeed;
     public float maxVelocity = 20;
 
-    void Start()
+    void Awake()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    public void InitBullet()
+    {
         myRigidbody2D.AddForce(transform.up * BulletSpeed);
+    }
+
+    public void SetVelocity(Vector2 velocity)
+    {
+        myRigidbody2D.velocity = velocity;
     }
 
     private void Update()
