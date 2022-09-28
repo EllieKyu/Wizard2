@@ -25,6 +25,11 @@ public class BulletVacuumHole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!myCirlce)
+        {
+            myCirlce = GetComponentInChildren<CircleCollider2D>();
+        }
+
         SetSuckDirection();
     }
 
