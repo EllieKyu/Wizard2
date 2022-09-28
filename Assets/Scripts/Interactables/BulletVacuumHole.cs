@@ -22,9 +22,6 @@ public class BulletVacuumHole : MonoBehaviour
 
     public CircleCollider2D myCirlce;
 
-    public float InitialDistance;
-    public float CalculationDistance;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +57,6 @@ public class BulletVacuumHole : MonoBehaviour
             force *= Time.deltaTime;
             force *= suckDirection;
             force *= CalculateForce(distance.magnitude);
-            InitialDistance = distance.magnitude;
 
             rBody.AddForce(force);
         }
@@ -101,8 +97,6 @@ public class BulletVacuumHole : MonoBehaviour
         var maxDistance = myCirlce.radius * transform.localScale.x;
 
         var distanceAlpha = distanceFromCenter / maxDistance;
-
-        CalculationDistance = distanceAlpha;
 
         if (suckMode == BulletVaccuumMode.Suck)
         {
