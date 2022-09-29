@@ -48,6 +48,10 @@ public class BulletPortal : MonoBehaviour
         return angle;
     }
 
+    private void Start()
+    {
+        SetVisualColor();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -142,6 +146,11 @@ public class BulletPortal : MonoBehaviour
     }
 
     private void OnValidate()
+    {
+        SetVisualColor();
+    }
+
+    private void SetVisualColor()
     {
         Color vfxColor = Color.white;
 

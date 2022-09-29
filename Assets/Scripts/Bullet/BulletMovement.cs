@@ -25,6 +25,11 @@ public class BulletMovement : MonoBehaviour
         myRigidbody2D.velocity = velocity;
     }
 
+    public void DisableMovement()
+    {
+        myRigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
+    }
+
     private void Update()
     {
         ClampVelocity();
