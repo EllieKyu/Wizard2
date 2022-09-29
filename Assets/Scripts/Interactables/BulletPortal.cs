@@ -20,6 +20,8 @@ public class BulletPortal : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+    public ParticleSystem pSystem;
+
     public void TeleportBullet(Vector2 bulletVelocity, Vector3 bulletForward, Vector3 portalUp, Vector3 hitOffset)
     {
         //Angle between portals
@@ -117,30 +119,49 @@ public class BulletPortal : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + transform.up);
-    }
-
-    private void OnValidate()
-    {
-        if (!sprite)
-        {
-            sprite = GetComponent<SpriteRenderer>();
-        }
 
         switch (portalColor)
         {
             case PortalColor.Blue:
-                sprite.color = Color.blue;
+                Gizmos.color = Color.blue;
                 break;
             case PortalColor.Orange:
-                sprite.color = Color.red;
+                Gizmos.color = new Color(1, 0.6f, 0);
                 break;
             case PortalColor.Pink:
-                sprite.color = Color.magenta;
+                Gizmos.color = Color.magenta;
                 break;
             case PortalColor.Green:
-                sprite.color = Color.green;
+                Gizmos.color = Color.green;
                 break;
         }
+
+        Gizmos.DrawIcon(transform.position, "P.png", false, Gizmos.color);
+        Gizmos.DrawLine(transform.position + transform.right * 0.2f, transform.position + transform.up);
+        Gizmos.DrawLine(transform.position - transform.right * 0.2f, transform.position + transform.up);
+    }
+
+    private void OnValidate()
+    {
+        Color vfxColor = Color.white;
+
+        switch (portalColor)
+        {
+            case PortalColor.Blue:
+                vfxColor = Color.blue;
+                break;
+            case PortalColor.Orange:
+                vfxColor = new Color(1, 0.6f, 0);
+                break;
+            case PortalColor.Pink:
+                vfxColor = Color.magenta;
+                break;
+            case PortalColor.Green:
+                vfxColor = Color.green;
+                break;
+        }
+
+        vfxColor.a = pSystem.startColor.a;
+        pSystem.startColor = vfxColor;
     }
 }
