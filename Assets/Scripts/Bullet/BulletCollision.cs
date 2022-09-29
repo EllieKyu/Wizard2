@@ -19,11 +19,6 @@ public class BulletCollision : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         myAudioSource.pitch = Random.Range(MinPitch, MaxPitch);
@@ -34,6 +29,7 @@ public class BulletCollision : MonoBehaviour
         if (collision.transform.root.CompareTag("Player"))
         {
             collision.transform.root.GetComponentInChildren<PlayerCollision>().HitByBullet();
+            Destroy(gameObject);
         }
     }
 }
