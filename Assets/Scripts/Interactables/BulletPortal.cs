@@ -79,8 +79,7 @@ public class BulletPortal : MonoBehaviour
         var offset = transform.position - new Vector3(point.x, point.y, 0);
         offset /= transform.localScale.x;
 
-
-        Destroy(bullet);
+        bullet.GetComponentInChildren<BulletCollision>().KillBullet();
 
         foreach (var portal in targetPortals)
         {

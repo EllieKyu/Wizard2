@@ -17,6 +17,7 @@ public class BulletCollision : MonoBehaviour
     void Start()
     {
         myAudioSource = GetComponent<AudioSource>();
+        BulletManager.Instance.RegisterBullet(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,7 +30,13 @@ public class BulletCollision : MonoBehaviour
         if (collision.transform.root.CompareTag("Player"))
         {
             collision.transform.root.GetComponentInChildren<PlayerCollision>().HitByBullet();
-            Destroy(gameObject);
+            KillBullet();
         }
+    }
+
+    public void KillBullet()
+    {
+        Destroy(gameObject);
+        BulletManager.Instance.RemoveBullet(this);
     }
 }
