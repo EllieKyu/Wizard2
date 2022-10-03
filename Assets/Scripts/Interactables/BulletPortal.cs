@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -21,6 +19,9 @@ public class BulletPortal : MonoBehaviour
     public SpriteRenderer sprite;
 
     public ParticleSystem pSystem;
+
+    public GameObject guts;
+    public GameObject chunk;
 
     public void TeleportBullet(Vector2 bulletVelocity, Vector3 bulletForward, Vector3 portalUp, Vector3 hitOffset)
     {
@@ -57,7 +58,15 @@ public class BulletPortal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //Kill player, trigger gore 
+            foreach (var portal in GrabPortals())
+            {
+                portal.TriggerGore();
+            }
+
+            TriggerGore(false);
+
+            collision.GetComponent<PlayerCollision>().TouchHazard();
+            collision.GetComponent<PlayerCollision>().HidePlayer();
         }
 
         if (collision.CompareTag("Bullet"))
@@ -114,9 +123,41 @@ public class BulletPortal : MonoBehaviour
         return portals;
     }
 
-    private void TriggerGore()
+    private void TriggerGore(bool triggerGuts = true)
     {
-        //Trigger blood and gore on other portal
+        //GUTS
+        var gutCount = Random.Range(1, 3);
+        for (int i = 0; i < gutCount; i++)
+        {
+            if (!triggerGuts)
+            {
+                break;
+            }
+
+            var g = Instantiate(guts, transform.position, Quaternion.identity);
+            g.transform.right = transform.right;
+
+            var rbodies = g.GetComponentsInChildren<Rigidbody2D>();
+            var forceDir = transform.up;
+            forceDir += transform.right * Random.Range(-1f, 1f);
+
+            rbodies[Random.Range(0, rbodies.Length)].AddForce(forceDir.normalized * 10, ForceMode2D.Impulse);
+        }
+
+        //CHUNKS
+        var chunkCount = Random.Range(2, 5);
+        for (int i = 0; i < chunkCount; i++)
+        {
+            var g = Instantiate(chunk, transform.position, Quaternion.identity);
+            g.transform.right = transform.right;
+
+            var rbodies = g.GetComponentsInChildren<Rigidbody2D>();
+            var forceDir = transform.up;
+            forceDir += transform.right * Random.Range(-1f, 1f);
+
+            rbodies[Random.Range(0, rbodies.Length)].AddForce(forceDir.normalized * 5, ForceMode2D.Impulse);
+        }
+
     }
 
     private void OnDrawGizmos()

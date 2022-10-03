@@ -142,4 +142,17 @@ public class PlayerCollision : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void HidePlayer()
+    {
+        foreach (var renderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            renderer.enabled = false;
+        }
+
+        foreach (var collider in GetComponentsInChildren<Collider2D>())
+        {
+            collider.enabled = false;
+        }
+    }
 }
