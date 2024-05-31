@@ -18,12 +18,6 @@ public class ObjectiveTracker : MonoBehaviour
         myGateController = FindObjectOfType<GateController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ObjectiveCompleted(GameObject Object)
     {
         GameObject foundObject = PillarsRequired.Find(x => x == Object);
