@@ -22,6 +22,8 @@ public class PlayerCollision : MonoBehaviour
 
     private float lastCatchTime = -100f;
 
+    private bool isDead = false;
+
     [SerializeField]
     private GameObject bulletCatchIndicator;
 
@@ -76,11 +78,18 @@ public class PlayerCollision : MonoBehaviour
 
     public void TouchHazard()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         Death();
     }
 
     private void Death()
     {
+        isDead = true;
+
         myAudioSource.clip = DeathClip;
         myAudioSource.pitch = Random.Range(0.5f, 3);
         myAudioSource.Play();
