@@ -37,15 +37,8 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private float gibPower = 250;
 
-    private AudioSource myAudioSource;
-
     [SerializeField]
     AudioClip DeathClip;
-
-    private void Start()
-    {
-        myAudioSource = GetComponent<AudioSource>();
-    }
 
     private void Update()
     {
@@ -90,13 +83,14 @@ public class PlayerCollision : MonoBehaviour
     {
         isDead = true;
 
-        myAudioSource.clip = DeathClip;
-        myAudioSource.pitch = Random.Range(0.5f, 3);
-        myAudioSource.Play();
+        AudioManager.Instance.PlayMusic(DeathClip);
 
         ActivateGib();
 
         DeactivateControlls();
+
+        //OMEGA PRONE TO BUGS
+        CameraFollow.Instance.UpdateTarget(transform.GetChild(0).transform);
 
         gameoverScreen.SetActive(true);
 
@@ -134,6 +128,11 @@ public class PlayerCollision : MonoBehaviour
 
     public void SetBulletCatcher()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         lastCatchTime = Time.time;
         bulletCatchIndicator.SetActive(true);
         catchTheBullet = true;

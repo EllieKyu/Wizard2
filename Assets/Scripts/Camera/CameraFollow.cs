@@ -9,20 +9,30 @@ public class CameraFollow : MonoBehaviour
     public Rigidbody2D rBody;
     public float forceStrength = 1;
 
-    void Start()
-    {
-        //if no camera bounds found, nuke self
-
-
-        //else, fetch min max.
-        //calc own bounds
-        //fetch target (player)
-
-    }
+    public static CameraFollow Instance;
 
     void Awake()
     {
+        if (!Instance)
+        {
+            Instance = this;
+        }
+
+        if (Instance != this)
+        {
+            print("Too many CameraFollow, killing myself");
+            Destroy(this);
+        }
+
         AddCollider();
+    }
+
+    private void Start()
+    {
+        if (!target)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
 
     void AddCollider()
@@ -55,5 +65,10 @@ public class CameraFollow : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         print("bing fucking bong");
+    }
+
+    public void UpdateTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

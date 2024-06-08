@@ -2,14 +2,27 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioSource musicPlayer;
+    public AudioSource sfxPlayer;
+
+    public static AudioManager Instance;
+
     void Start()
     {
-        
+        if (!Instance)
+        {
+            Instance = this;
+        }
+
+        if (Instance != this)
+        {
+            print("Too many audiosources, killing myself");
+            Destroy(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayMusic(AudioClip toPlay)
     {
-        
+        musicPlayer.PlayOneShot(toPlay);
     }
 }
