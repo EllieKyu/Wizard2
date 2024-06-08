@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -18,18 +21,26 @@ public class CameraBounds : MonoBehaviour
 
     public Color gizmoColor;
 
-    private void Awake()
+    public EdgeCollider2D edgeCollider2D;
+
+    private void Start()
     {
+        coords = new CameraBoundCoordinates();
+
         coords.minX = min.position.x;
         coords.maxX = max.position.x;
 
         coords.minY = min.position.y;
         coords.maxY = max.position.y;
+
+        SetEdge();
     }
 
-    public CameraBoundCoordinates GetBounds()
+    private void SetEdge()
     {
-        return coords;
+        List<Vector2> path = new List<Vector2>() { new Vector2(coords.minX, coords.minY), new Vector2(coords.minX, coords.maxY), new Vector2(coords.maxX, coords.maxY), new Vector2(coords.maxX, coords.minY), new Vector2(coords.minX, coords.minY) };
+
+        edgeCollider2D.SetPoints(path);
     }
 
     private void OnDrawGizmos()
