@@ -29,7 +29,11 @@ public class AchievementManager : MonoBehaviour
 
     void Start()
     {
-
+        if (SteamManager.Initialized)
+        {
+            string name = SteamFriends.GetPersonaName();
+            Debug.Log(name);
+        }
     }
 
     // Update is called once per frame
@@ -60,6 +64,11 @@ public class AchievementManager : MonoBehaviour
         var achievement = achievementMap.binds.Find(b => b.achievementPointer == achievementPointer).achievementId;
         print(achievement);
 
-        Steamworks.SteamUserStats.SetAchievement(achievement);
+        SteamUserStats.SetAchievement(achievement);
+        SteamUserStats.StoreStats();
+
+        var a = SteamUserStats.GetNumAchievements();
+
+        print(a);
     }
 }
