@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f37b55d4fd1624586a2f1ae428ac6f, type: 3}
+  m_Name: HatData
+  m_EditorClassIdentifier: 
+  Data:
+  - id: 0
+    name: Basic hat
+    description: As basic as untoasted bread
+    lockedDescription: 'Seeing this would be a bug. '
+    sprite: {fileID: 2404568803186443130, guid: 58ac896e4a11d9b469c20681d66d5019, type: 3}
+  - id: 1
+    name: Triple threat
+    description: Three hats in one????
+    lockedDescription: Complete the game 3 times
+    sprite: {fileID: 2303016579481876823, guid: cd640c7bc9f93a74e8941e862aa31a3d, type: 3}
