@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public enum AchievementPointer
 {
-    mutedTheGame = 0
+    mutedTheMusic = 0
 }
 
 public class AchievementManager : MonoBehaviour
@@ -41,7 +41,7 @@ public class AchievementManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            RegisterAchievement(AchievementPointer.mutedTheGame);
+            RegisterAchievement(AchievementPointer.mutedTheMusic);
         }
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -53,9 +53,9 @@ public class AchievementManager : MonoBehaviour
     private void GetAchievementStatus()
     {
         bool hej = false;
-        var v = SteamUserStats.GetAchievement(achievementMap.binds.Find(b => b.achievementPointer == AchievementPointer.mutedTheGame).achievementId, out hej);
+        var v = SteamUserStats.GetAchievement(achievementMap.binds.Find(b => b.achievementPointer == AchievementPointer.mutedTheMusic).achievementId, out hej);
 
-        print(achievementMap.binds.Find(b => b.achievementPointer == AchievementPointer.mutedTheGame).achievementId + " is " + hej);
+        print(achievementMap.binds.Find(b => b.achievementPointer == AchievementPointer.mutedTheMusic).achievementId + " is " + hej);
 
     }
 
@@ -66,9 +66,5 @@ public class AchievementManager : MonoBehaviour
 
         SteamUserStats.SetAchievement(achievement);
         SteamUserStats.StoreStats();
-
-        var a = SteamUserStats.GetNumAchievements();
-
-        print(a);
     }
 }
