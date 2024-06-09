@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject audioOptions;
+    public GameObject hatMenu;
+
     public Transform uiRoot;
 
     public void PlayGame()
@@ -22,5 +24,10 @@ public class MainMenu : MonoBehaviour
     public void AudioOptions()
     {
         Instantiate(audioOptions, uiRoot);
+    }
+
+    public void HatMenu()
+    {
+        Instantiate(hatMenu, uiRoot);
     }
 }
