@@ -1211,6 +1211,7 @@ GameObject:
   - component: {fileID: 1686839784}
   - component: {fileID: 1686839783}
   - component: {fileID: 1686839785}
+  - component: {fileID: 1686839786}
   m_Layer: 0
   m_Name: Overseer
   m_TagString: Untagged
@@ -1259,6 +1260,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keys: {fileID: 11400000, guid: 9a97eeab64a7b704cad0a531e75fd446, type: 2}
+--- !u!114 &1686839786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686839782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b2beaca144c3a408c448643ad13775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1699126998
 GameObject:
   m_ObjectHideFlags: 0

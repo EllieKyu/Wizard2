@@ -20,6 +20,11 @@ public class PlayerPrefIO : MonoBehaviour
         }
     }
 
+    public bool HasKey(string key)
+    {
+        return PlayerPrefs.HasKey(key);
+    }
+
     public void WriteString(string key, string value)
     {
         PlayerPrefs.SetString(key, value);

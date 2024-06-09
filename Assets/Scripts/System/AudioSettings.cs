@@ -63,4 +63,10 @@ public class AudioSettings : MonoBehaviour
             am.SetAudioLevels();
         }
     }
+
+    public void CloseWindow()
+    {
+        AchievementChecker.Instance.CheckAchievements();
+        Destroy(gameObject);
+    }
 }
