@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MusicMuter : MonoBehaviour
 {
-
     private const string MUTE_KEY = "MusicMuted";
     private bool musicMuted = false;
 

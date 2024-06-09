@@ -322,6 +322,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicPlayer: {fileID: 3323587279051821250}
   sfxPlayer: {fileID: 679770496240984029}
+  mainMix: {fileID: 24100000, guid: cdc8017b7af7ae741831a0d167c83ef6, type: 2}
+  minVolume: -80
+  maxVolume: 0
+  playerPrefsKeys: {fileID: 11400000, guid: 9a97eeab64a7b704cad0a531e75fd446, type: 2}
 --- !u!1001 &5625804619224117666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,6 +334,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8936275856802090798}
     m_Modifications:
+    - target: {fileID: 101945645530553797, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 101945645530553797, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.89
+      objectReference: {fileID: 0}
     - target: {fileID: 1269033237082999021, guid: 505047eec76b1c146b736580e06a9570, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -370,15 +382,82 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2630911460909404764, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: edgeCollider2D
+      value: 
+      objectReference: {fileID: 7073232969157903742}
     - target: {fileID: 5552978191622069649, guid: 505047eec76b1c146b736580e06a9570, type: 3}
       propertyPath: m_Name
       value: CameraBounds
       objectReference: {fileID: 0}
+    - target: {fileID: 5552978191622069649, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208344879616638010, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208344879616638010, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5552978191622069649, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7073232969157903742}
   m_SourcePrefab: {fileID: 100100000, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+--- !u!1 &217011984858950707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5552978191622069649, guid: 505047eec76b1c146b736580e06a9570, type: 3}
+  m_PrefabInstance: {fileID: 5625804619224117666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &7073232969157903742
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217011984858950707}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!4 &6885542585002490191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1269033237082999021, guid: 505047eec76b1c146b736580e06a9570, type: 3}
