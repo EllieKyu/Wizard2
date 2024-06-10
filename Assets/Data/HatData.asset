@@ -14,12 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - id: 0
+    name: ' '
+    description: ' '
+    lockedDescription: ' '
+    sprite: {fileID: 3436914362765528371, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+    lockedSprite: {fileID: 3436914362765528371, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+    available: 0
+  - id: 1
     name: Basic hat
     description: As basic as untoasted bread
     lockedDescription: 'Seeing this would be a bug. '
     sprite: {fileID: 2404568803186443130, guid: 58ac896e4a11d9b469c20681d66d5019, type: 3}
-  - id: 1
+    lockedSprite: {fileID: 2061223666325461347, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+    available: 1
+  - id: 2
     name: Triple threat
     description: Three hats in one????
     lockedDescription: Complete the game 3 times
     sprite: {fileID: 2303016579481876823, guid: cd640c7bc9f93a74e8941e862aa31a3d, type: 3}
+    lockedSprite: {fileID: 2061223666325461347, guid: 215687feeab0b7445b4a1cd86c82c2e1, type: 3}
+    available: 1

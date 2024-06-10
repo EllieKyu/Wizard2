@@ -7,26 +7,21 @@ using System.Linq;
 
 public class HatEquipEntity : MonoBehaviour
 {
-    public HatData hatData;
     public Image hatPicture;
     public TextMeshProUGUI hatName;
     public TextMeshProUGUI hatDescriptionField;
-    public HatID hatID;
+    public Button button;
+    public HatID hatId;
 
-    private void Start()
+    public void GenerateEntity(HatDataEntry hat, bool unlocked)
     {
-        GenerateEntity();
-    }
+        hatId = hat.id;
 
-    //Todo, inject hat id from controller
+        hatPicture.sprite = hat.sprite;
+        hatName.text = hat.name;
+        hatDescriptionField.text = unlocked ? hat.description : hat.lockedDescription;
 
-    private void GenerateEntity()
-    {
-        var element = hatData.Data.Find(h => h.id == hatID);
-
-        hatPicture.sprite = element.sprite;
-        hatName.text = element.name;
-        hatDescriptionField.text = element.description;
+        button.interactable = unlocked;
     }
 }
 

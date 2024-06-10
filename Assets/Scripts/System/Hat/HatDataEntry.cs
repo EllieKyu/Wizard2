@@ -2,7 +2,8 @@ using UnityEngine;
 
 public enum HatID
 {
-    Basic = 0,
+    EmptyState = 0,
+    Basic,
     TripleThreat
 }
 
@@ -14,4 +15,6 @@ public class HatDataEntry
     public string description;
     public string lockedDescription;
     public Sprite sprite;
+    public Sprite lockedSprite;
+    public bool available;
 }
