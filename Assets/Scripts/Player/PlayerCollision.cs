@@ -90,7 +90,7 @@ public class PlayerCollision : MonoBehaviour
         DeactivateControlls();
 
         //OMEGA PRONE TO BUGS
-        CameraFollow.Instance.UpdateTarget(transform.GetChild(0).transform);
+        //CameraFollow.Instance.UpdateTarget(transform.GetChild(0).transform);
 
         gameoverScreen.SetActive(true);
 

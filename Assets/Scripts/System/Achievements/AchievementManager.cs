@@ -3,11 +3,6 @@ using System;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public enum AchievementPointer
-{
-    mutedTheMusic = 0
-}
-
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager Instance;

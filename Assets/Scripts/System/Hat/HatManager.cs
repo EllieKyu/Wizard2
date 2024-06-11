@@ -1,38 +1,27 @@
+using System;
 using UnityEngine;
 
 public class HatManager : MonoBehaviour
 {
-    public static HatManager Instance;
-    private Sprite equippedHat;
+    public SpriteRenderer spriteRenderer;
+    public HatData hatData;
 
-    private void Awake()
+    private void Start()
     {
-        DontDestroyOnLoad(this);
-
-        if (!Instance)
+        if (PlayerPrefHelper.Instance)
         {
-            Instance = this;
-        }
-
-        if (Instance != this)
-        {
-            Destroy(this);
+            var hat = FetchHatSprite();
+            ApplyHat(hat);
         }
     }
 
-    private void FetchHatSprite()
+    private Sprite FetchHatSprite()
     {
-        //Fetch player pref
-        //Fetch player hat data sprite
+        return hatData.Data.Find(d => d.id == PlayerPrefHelper.Instance.FetchEquippedHat()).sprite;
     }
 
-    private void ApplyHatToPlayer()
+    private void ApplyHat(Sprite hat)
     {
-        //Replace sprite on player
-    }
-
-    public void SetNewHat(HatID newHat)
-    {
-        //Save player pref
+        spriteRenderer.sprite = hat;
     }
 }

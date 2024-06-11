@@ -1,12 +1,5 @@
 using UnityEngine;
 
-public enum HatID
-{
-    EmptyState = 0,
-    Basic,
-    TripleThreat
-}
-
 [System.Serializable]
 public class HatDataEntry
 {

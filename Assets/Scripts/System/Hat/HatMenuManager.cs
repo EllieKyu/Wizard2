@@ -18,12 +18,15 @@ public class HatMenuManager : MonoBehaviour
     public List<HatDataEntry> availableHats;
     private HatDataEntry emptyHat;
 
-
-
     void Start()
     {
         InitHats();
         SetMaxPages();
+        RefreshState();
+    }
+
+    private void RefreshState()
+    {
         SetupEntries();
         SetupArrows();
     }
@@ -68,17 +71,19 @@ public class HatMenuManager : MonoBehaviour
 
     private void SetupEntry(HatEquipEntity uiEntity, HatDataEntry hat, bool available)
     {
-        uiEntity.GenerateEntity(hat, available);
+        uiEntity.GenerateEntity(hat, available, this);
     }
 
     public void NextPage()
     {
-        //go to next page
+        currentPage++;
+        RefreshState();
     }
 
     public void PrevPage()
     {
-        //go to previous page
+        currentPage--;
+        RefreshState();
     }
 
     public void SetPreviousPageArrowEnabled()
@@ -99,6 +104,8 @@ public class HatMenuManager : MonoBehaviour
 
     public void EquipHat(HatID newHat)
     {
-        //save hat
+        PlayerPrefHelper.Instance.SetEquippedHat(newHat);
     }
+
+    public void EquipHat(string hat) { }
 }

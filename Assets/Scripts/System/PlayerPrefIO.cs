@@ -49,7 +49,7 @@ public class PlayerPrefIO : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public string GetString(string key)
+    public string GetString(string key, string fallback = "Error")
     {
         if (PlayerPrefs.HasKey(key))
         {
@@ -57,7 +57,7 @@ public class PlayerPrefIO : MonoBehaviour
         }
 
         Debug.Log(key + " player pref is borked");
-        return "Error";
+        return fallback;
     }
 
     public int GetInt(string key, int fallback = 0)

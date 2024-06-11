@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 9144125805857911801}
   - component: {fileID: 588524647483843895}
   m_Layer: 0
-  m_Name: player_headd
+  m_Name: player_actualHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 7273066945024724652}
   - component: {fileID: 2042676619076226838}
   - component: {fileID: 1532416561842113205}
+  - component: {fileID: 5841665415101217892}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1289,6 +1290,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5841665415101217892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273066945024724649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ed977616544b246b2e11e22fb79f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 424196705040396561}
+  hatData: {fileID: 11400000, guid: 6d1e1bfcde11d7a4395a86ddf3d34ad9, type: 2}
 --- !u!1 &9192834584357023553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1549,11 @@ PrefabInstance:
       addedObject: {fileID: 6278939273667187390}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+--- !u!212 &424196705040396561 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1052232521720071385, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}
+  m_PrefabInstance: {fileID: 826774747280831944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!58 &972929753689558567 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 502645264003955695, guid: 8c868f00fe5f3824b8210c9c91f129af, type: 3}

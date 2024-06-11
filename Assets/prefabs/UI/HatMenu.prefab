@@ -1272,6 +1272,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatEntry 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1599444271180190268}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1384,6 +1412,34 @@ PrefabInstance:
     - target: {fileID: 5253478283856811753, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
       propertyPath: m_Name
       value: HatEntry 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 283052690912192648}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1498,6 +1554,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatEntry
       objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2682979146277811577}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1610,6 +1694,34 @@ PrefabInstance:
     - target: {fileID: 5253478283856811753, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
       propertyPath: m_Name
       value: HatEntry 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6281208272366347594}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1724,6 +1836,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatEntry 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4954607239898116417}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1836,6 +1976,34 @@ PrefabInstance:
     - target: {fileID: 5253478283856811753, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
       propertyPath: m_Name
       value: HatEntry 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9170333185164328112}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HatEquipEntity, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646070543071047742, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
