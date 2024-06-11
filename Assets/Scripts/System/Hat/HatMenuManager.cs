@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class HatMenuManager : MonoBehaviour
 {
     public List<HatEquipEntity> entries = new List<HatEquipEntity>();
+    public Image preview;
     public Button prevButton;
     public Button nextButton;
-
 
     public HatData hatData;
     public int currentPage = 0;
@@ -29,6 +29,14 @@ public class HatMenuManager : MonoBehaviour
     {
         SetupEntries();
         SetupArrows();
+        SetPreview();
+    }
+
+    private void SetPreview()
+    {
+        //THE HAT SPRITE SHOULD BE AROUND 170 PIXELS HIGH. 
+        //IF LOWER THAN THAT, ADD EMPTY PIXELS ABOVE
+        preview.sprite = hatData.Data.Find(d => d.id == PlayerPrefHelper.Instance.FetchEquippedHat()).sprite;
     }
 
     private void SetupArrows()
@@ -105,7 +113,6 @@ public class HatMenuManager : MonoBehaviour
     public void EquipHat(HatID newHat)
     {
         PlayerPrefHelper.Instance.SetEquippedHat(newHat);
+        RefreshState();
     }
-
-    public void EquipHat(string hat) { }
 }
