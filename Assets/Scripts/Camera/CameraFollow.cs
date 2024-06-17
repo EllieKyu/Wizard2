@@ -1,6 +1,4 @@
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -60,11 +58,6 @@ public class CameraFollow : MonoBehaviour
         force *= Time.deltaTime;
         force *= forceStrength;
         rBody.AddForce(force);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print("bing fucking bong");
     }
 
     public void UpdateTarget(Transform newTarget)
