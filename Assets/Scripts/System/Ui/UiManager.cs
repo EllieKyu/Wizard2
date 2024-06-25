@@ -9,6 +9,8 @@ public class UiManager : MonoBehaviour
 	public UiStack uiStack;
 	public EventSystem eventSystem;
 
+	public InputAction menuBack;
+
 	void Start()
 	{
 		if (!Instance)
@@ -21,11 +23,23 @@ public class UiManager : MonoBehaviour
 			print("Too many UiManagers, killing myself");
 			Destroy(this);
 		}
+
+		SetupInputactions();
+
+		if (!eventSystem)
+		{
+			eventSystem = EventSystem.current;
+		}
+	}
+
+	private void SetupInputactions()
+	{
+		menuBack = InputSystem.actions.FindAction("MenuBack");
 	}
 
 	private void Update()
 	{
-		if (menuBackAction.WasPressedThisFrame())
+		if (menuBack.WasPressedThisFrame())
 		{
 			CloseCurrentPanel();
 		}

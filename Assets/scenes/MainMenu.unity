@@ -1862,6 +1862,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiStack: {fileID: 1878039995}
+  eventSystem: {fileID: 0}
+  menuBack:
+    m_Name: Menu Back
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 030e37ec-ca91-4243-96e8-62746e78e323
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &1993229198
 GameObject:
   m_ObjectHideFlags: 0

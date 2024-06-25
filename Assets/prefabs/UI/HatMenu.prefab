@@ -1439,6 +1439,7 @@ GameObject:
   - component: {fileID: 1309916617914953603}
   - component: {fileID: 8009570490514529277}
   - component: {fileID: 5679597252982282866}
+  - component: {fileID: 7341025842773310568}
   m_Layer: 5
   m_Name: HatMenu
   m_TagString: Untagged
@@ -1530,6 +1531,19 @@ MonoBehaviour:
   currentPage: 0
   maxPages: 1
   availableHats: []
+--- !u!114 &7341025842773310568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858110312236878804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc61de7bc4feb2145a200636052939ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8378317856381598846}
 --- !u!1001 &1127127373339004370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1951,12 +1965,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1843663609839165422, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
   m_PrefabInstance: {fileID: 4372389516731509399}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8378317856381598846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4df6b8bf00ecd984db3706d824e3eec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8378317856381598846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5253478283856811753, guid: b10b07a23f27fa94ea558e688f2fe415, type: 3}
+  m_PrefabInstance: {fileID: 4372389516731509399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5673787776938752676
 PrefabInstance:
   m_ObjectHideFlags: 0

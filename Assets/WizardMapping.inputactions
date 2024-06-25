@@ -2,11 +2,11 @@
     "name": "WizardMapping",
     "maps": [
         {
-            "name": "MenuBackAction",
+            "name": "Default",
             "id": "d6208162-475a-44a0-970c-cfc3c70f9447",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "MenuBack",
                     "type": "Button",
                     "id": "70503422-6942-4ec9-a0db-c8164855a408",
                     "expectedControlType": "",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "New action",
+                    "action": "MenuBack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -33,8 +33,19 @@
                     "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": ";Gamepad",
+                    "action": "MenuBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8e1b996-d406-4562-969f-9dd8feca2e6a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";MKB",
+                    "action": "MenuBack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
