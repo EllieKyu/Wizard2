@@ -1,17 +1,28 @@
 using System;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioSettings : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
     public Slider musicSlider;
     public Slider sfxSlider;
     public Slider masterSlider;
+    public Toggle vibrationToggle;
 
 
     private void Start()
     {
         SetupSliders();
+        SetupToggle();
+    }
+
+    private void SetupToggle()
+    {
+        var pps = PlayerPrefIO.Instance;
+
+        var vibration = pps.GetBool(pps.keys.VIBRATION_ACTIVE, true);
+        vibrationToggle.isOn = vibration;
     }
 
     private void SetupSliders()
@@ -61,6 +72,17 @@ public class AudioSettings : MonoBehaviour
         if (am)
         {
             am.SetAudioLevels();
+        }
+    }
+
+    public void SetVibration(bool vibration)
+    {
+        var pps = PlayerPrefIO.Instance;
+        pps.WriteBool(pps.keys.VIBRATION_ACTIVE, vibration);
+
+        if (vibration)
+        {
+            VibrationHelper.Instance.SmallVibration();
         }
     }
 

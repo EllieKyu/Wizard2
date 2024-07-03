@@ -9,6 +9,9 @@ public class PlayerPrefsKeys : ScriptableObject
     public readonly string MUSIC_VOLUME = "MusicVolume";
     public readonly string SFX_VOLUME = "SfxVolume";
 
+    //Options
+    public readonly string VIBRATION_ACTIVE = "EnableVibration";
+
     //Hats
     public readonly string EQUIPPED_HAT = "CurrentHat";
 }

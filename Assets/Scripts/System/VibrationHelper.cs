@@ -31,16 +31,30 @@ public class VibrationHelper : MonoBehaviour
 
     public void BigVibration()
     {
-        //check if can vibrate
+        if (!CanVibrate())
+        {
+            return;
+        }
+
         StopAllCoroutines();
         StartCoroutine(BigVibrate());
     }
 
     public void SmallVibration()
     {
-        //check if can vibrate
+        if (!CanVibrate())
+        {
+            return;
+        }
+
         StopAllCoroutines();
         StartCoroutine(SmallVibrate());
+    }
+
+    private bool CanVibrate()
+    {
+        var pps = PlayerPrefIO.Instance;
+        return pps.GetBool(pps.keys.VIBRATION_ACTIVE, true);
     }
 
     private void ResetMotor()

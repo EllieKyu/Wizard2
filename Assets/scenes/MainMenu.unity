@@ -240,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Audio options
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03cfa15be6910d549aa42981f163fa93, type: 2}
   m_sharedMaterial: {fileID: -4672642790759851201, guid: 03cfa15be6910d549aa42981f163fa93, type: 2}
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 1450645114}
   - component: {fileID: 1450645113}
   m_Layer: 5
-  m_Name: AudioOptions
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1469,6 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bigVibrationTime: 0.5
   bigVibrationPower: 0.4
+  smallVibrationTime: 0.1
+  smallVibrationPower: 0.1
 --- !u!1 &1699126998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 858286014910302026, guid: 04b01b3169e2d2e47aee30946851e15d, type: 3}
       propertyPath: m_Name
-      value: AudioOptions
+      value: Options
       objectReference: {fileID: 0}
     - target: {fileID: 858286014910302026, guid: 04b01b3169e2d2e47aee30946851e15d, type: 3}
       propertyPath: m_IsActive
