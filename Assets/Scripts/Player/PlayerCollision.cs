@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
@@ -22,7 +24,7 @@ public class PlayerCollision : MonoBehaviour
 
     private float lastCatchTime = -100f;
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     [SerializeField]
     private GameObject bulletCatchIndicator;
@@ -37,8 +39,35 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private float gibPower = 250;
 
+    public TextMeshProUGUI retryText;
+
+    public string mkbRetryText;
+    public string controllerRetryText;
+
     [SerializeField]
     AudioClip DeathClip;
+
+    InputAction restartAction;
+
+    public static PlayerCollision Instance;
+
+    private InputDevice inputDevice;
+
+    private void Start()
+    {
+        restartAction = InputSystem.actions.FindAction("Restart");
+
+        if (!Instance)
+        {
+            Instance = this;
+        }
+
+        if (Instance != this)
+        {
+            print("Too many PlayerCollisions, killing myself");
+            Destroy(this);
+        }
+    }
 
     private void Update()
     {
@@ -50,10 +79,21 @@ public class PlayerCollision : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (restartAction.WasPerformedThisFrame())
         {
             ReloadScene();
         }
+
+        InputSystem.onActionChange += (obj, change) =>
+        {
+            if (change == InputActionChange.ActionPerformed)
+            {
+                var inputAction = (InputAction)obj;
+                var lastControl = inputAction.activeControl;
+                var lastDevice = lastControl.device;
+                inputDevice = lastDevice;
+            }
+        };
     }
 
     public void HitByBullet()
@@ -89,8 +129,20 @@ public class PlayerCollision : MonoBehaviour
 
         DeactivateControlls();
 
+
         //OMEGA PRONE TO BUGS
         //CameraFollow.Instance.UpdateTarget(transform.GetChild(0).transform);
+
+        if (inputDevice.displayName == "Mouse" || inputDevice.displayName == "Keyboard")
+        {
+            retryText.text = mkbRetryText;
+        }
+
+        else
+        {
+            retryText.text = controllerRetryText;
+            VibrationHelper.Instance.BigVibration();
+        }
 
         gameoverScreen.SetActive(true);
 

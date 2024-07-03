@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System;
 
 public class GateController : MonoBehaviour
 {
@@ -63,10 +64,20 @@ public class GateController : MonoBehaviour
         if (Locked || HasPlayerCompletedLevel)
             return;
 
+        if (PlayerIsDead())
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerCompletedLevel();
         }
+    }
+
+    private bool PlayerIsDead()
+    {
+        return PlayerCollision.Instance.isDead;
     }
 
     void PlayerCompletedLevel()

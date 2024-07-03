@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 450720847869258907}
   - component: {fileID: 4283433982909911735}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: RetryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7135873664473223676, guid: bed15b901e15b6e4799b13f99f703641, type: 3}
   bulletCount: 1
-  bulletSpawnOffset: 0.5
+  bulletSpawnOffset: 0.531
   shootSounds:
   - {fileID: 8300000, guid: 8b5b2ca0460e13649a70f65fadc7ce8c, type: 3}
   - {fileID: 8300000, guid: 75781993f0b81b8489eaa1afe901f53a, type: 3}
@@ -1039,6 +1039,7 @@ MonoBehaviour:
   playerShoot: {fileID: 7273066945024724655}
   catchTime: 0.2
   catchCooldown: 1
+  isDead: 0
   bulletCatchIndicator: {fileID: 5779261053024486189}
   bodyparts:
   - {fileID: 3182125695553755305}
@@ -1051,6 +1052,11 @@ MonoBehaviour:
   animator: {fileID: 5854912211235345200}
   gameoverScreen: {fileID: 1462898266}
   gibPower: 250
+  retryText: {fileID: 457860294}
+  mkbRetryText: Smash that mf space bar to retry <size=12>and ring the notification
+    bell
+  controllerRetryText: Press that mf square or [x]  to retry <size=12>and ring the
+    notification bell
   DeathClip: {fileID: 8300000, guid: 2d470d62ccd00d74bb9ef4655992f19d, type: 3}
 --- !u!70 &7273066945024724653
 CapsuleCollider2D:

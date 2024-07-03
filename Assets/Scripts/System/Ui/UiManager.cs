@@ -47,7 +47,6 @@ public class UiManager : MonoBehaviour
             CloseCurrentPanel();
         }
 
-
         InputSystem.onActionChange += (obj, change) =>
         {
             if (change == InputActionChange.ActionPerformed)
@@ -56,19 +55,20 @@ public class UiManager : MonoBehaviour
                 var lastControl = inputAction.activeControl;
                 var lastDevice = lastControl.device;
 
-                if (currentDevice != lastDevice)
-                {
-                    currentDevice = lastDevice;
+                currentDevice = lastDevice;
 
-                }
+                print(lastDevice.displayName);
             }
         };
 
-        if (currentDevice.displayName != "Mouse")
+        if (currentDevice != null)
         {
-            if (eventSystem.currentSelectedGameObject == null)
+            if (currentDevice.displayName != "Mouse")
             {
-                eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+                if (eventSystem.currentSelectedGameObject == null)
+                {
+                    eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+                }
             }
         }
     }
