@@ -81,14 +81,14 @@ public class PlayerShoot : MonoBehaviour
             myTargetPosition = transform.position + new Vector3(aim.x, aim.y, 0);
         }
 
-            var aimDirection = (myTargetPosition - transform.position).normalized;
+        var aimDirection = (myTargetPosition - transform.position).normalized;
 
-            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
-            rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
+        rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            position = transform.position;
-            position += aimDirection * bulletSpawnOffset;
-        
+        position = transform.position;
+        position += aimDirection * bulletSpawnOffset;
+
 
         GameObject bulletObj = Instantiate(Bullet, position, rotation);
         bulletObj.GetComponentInChildren<BulletMovement>().InitBullet();
@@ -101,6 +101,17 @@ public class PlayerShoot : MonoBehaviour
         }
 
         audioSource.PlayOneShot(shootSounds[Random.Range(0, shootSounds.Length)]);
+
+        if (currentDevice.displayName == "Mouse" || currentDevice.displayName == "Keyboard")
+        {
+            //nope
+        }
+
+        else
+        {
+            VibrationHelper.Instance.SmallVibration();
+        }
+
     }
 
     public void AddBullet()

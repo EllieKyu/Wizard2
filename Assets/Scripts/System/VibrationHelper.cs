@@ -10,6 +10,9 @@ public class VibrationHelper : MonoBehaviour
     public float bigVibrationTime = 0.5f;
     public float bigVibrationPower = 0.15f;
 
+    public float smallVibrationTime = 0.1f;
+    public float smallVibrationPower = 0.1f;
+
     private void Start()
     {
         DontDestroyOnLoad(this);
@@ -28,9 +31,16 @@ public class VibrationHelper : MonoBehaviour
 
     public void BigVibration()
     {
+        //check if can vibrate
         StopAllCoroutines();
-        ResetMotor();
         StartCoroutine(BigVibrate());
+    }
+
+    public void SmallVibration()
+    {
+        //check if can vibrate
+        StopAllCoroutines();
+        StartCoroutine(SmallVibrate());
     }
 
     private void ResetMotor()
@@ -38,9 +48,15 @@ public class VibrationHelper : MonoBehaviour
         Gamepad.current.SetMotorSpeeds(0, 0);
     }
 
+    private IEnumerator SmallVibrate()
+    {
+        Gamepad.current.SetMotorSpeeds(0, smallVibrationPower);
+        yield return new WaitForSeconds(smallVibrationTime);
+        Gamepad.current.SetMotorSpeeds(0, 0);
+    }
+
     private IEnumerator BigVibrate()
     {
-        print("bong");
         Gamepad.current.SetMotorSpeeds(bigVibrationPower, bigVibrationPower);
         yield return new WaitForSeconds(bigVibrationTime);
         Gamepad.current.SetMotorSpeeds(0, 0);

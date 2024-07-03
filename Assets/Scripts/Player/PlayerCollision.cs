@@ -48,6 +48,7 @@ public class PlayerCollision : MonoBehaviour
     AudioClip DeathClip;
 
     InputAction restartAction;
+    InputAction blockAction;
 
     public static PlayerCollision Instance;
 
@@ -56,6 +57,7 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
         restartAction = InputSystem.actions.FindAction("Restart");
+        blockAction = InputSystem.actions.FindAction("BulletBlock");
 
         if (!Instance)
         {
@@ -71,7 +73,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (blockAction.WasPerformedThisFrame())
         {
             if (Time.time > catchCooldown + lastCatchTime)
             {
