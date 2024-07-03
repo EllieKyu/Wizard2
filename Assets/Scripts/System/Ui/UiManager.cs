@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class UiManager : MonoBehaviour
     public EventSystem eventSystem;
 
     public InputAction menuBack;
+
+    private InputDevice currentDevice;
 
     void Start()
     {
@@ -42,6 +45,31 @@ public class UiManager : MonoBehaviour
         if (menuBack.WasPressedThisFrame())
         {
             CloseCurrentPanel();
+        }
+
+
+        InputSystem.onActionChange += (obj, change) =>
+        {
+            if (change == InputActionChange.ActionPerformed)
+            {
+                var inputAction = (InputAction)obj;
+                var lastControl = inputAction.activeControl;
+                var lastDevice = lastControl.device;
+
+                if (currentDevice != lastDevice)
+                {
+                    currentDevice = lastDevice;
+
+                }
+            }
+        };
+
+        if (currentDevice.displayName != "Mouse")
+        {
+            if (eventSystem.currentSelectedGameObject == null)
+            {
+                eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
+            }
         }
     }
 
