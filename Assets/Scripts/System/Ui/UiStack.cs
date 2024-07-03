@@ -3,52 +3,60 @@ using System.Collections.Generic;
 
 public class UiStack : MonoBehaviour
 {
-	public Stack<GameObject> panelStack = new Stack<GameObject>();
+    public Stack<GameObject> panelStack = new Stack<GameObject>();
 
-	public void AddPanel(GameObject newPanel)
-	{
-		DisableStack();
-		panelStack.Push(newPanel);
-	}
+    private void Awake()
+    {
+        var find = FindFirstObjectByType<DefaultButton>();
 
-	public void RemovePanel()
-	{
-		if (panelStack.Count <= 0)
-		{
-			Debug.Log("The UI stack is empty", gameObject);
-			return;
-		}
+        if (!find)
+        {
+            return;
+        }
 
-		var g = panelStack.Pop();
-		Destroy(g);
+        panelStack.Push(find.gameObject);
+    }
 
-		ActivateTopStack();
-	}
+    public void AddPanel(GameObject newPanel)
+    {
+        DisableStack();
+        panelStack.Push(newPanel);
+    }
 
-	private void ActivateTopStack()
-	{
-		if (panelStack.Count <= 0)
-		{
-			return;
-		}
+    public GameObject RemovePanel()
+    {
+        if (panelStack.Count <= 1)
+        {
+            Debug.Log("The UI stack is empty", gameObject);
+            return null;
+        }
 
-		var g = panelStack.Peek();
-		g.SetActive(true);
-	}
+        var g = panelStack.Pop();
+        g.SetActive(false);
 
-	private void DisableStack()
-	{
-		if (panelStack.Count > 0)
-		{
-			foreach (var panel in panelStack)
-			{
-				panel.SetActive(false);
-			}
-		}
-	}
+        ActivateTopStack();
+        return panelStack.Peek();
+    }
 
-	public int GetStackCount()
-	{
-		return panelStack.Count;
-	}
+    private void ActivateTopStack()
+    {
+        var g = panelStack.Peek();
+        g.SetActive(true);
+    }
+
+    private void DisableStack()
+    {
+        if (panelStack.Count > 0)
+        {
+            foreach (var panel in panelStack)
+            {
+                panel.SetActive(false);
+            }
+        }
+    }
+
+    public int GetStackCount()
+    {
+        return panelStack.Count;
+    }
 }

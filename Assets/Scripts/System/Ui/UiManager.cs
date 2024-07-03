@@ -5,60 +5,71 @@ using UnityEngine.InputSystem;
 
 public class UiManager : MonoBehaviour
 {
-	public static UiManager Instance;
-	public UiStack uiStack;
-	public EventSystem eventSystem;
+    public static UiManager Instance;
+    public UiStack uiStack;
+    public EventSystem eventSystem;
 
-	public InputAction menuBack;
+    public InputAction menuBack;
 
-	void Start()
-	{
-		if (!Instance)
-		{
-			Instance = this;
-		}
+    void Start()
+    {
+        if (!Instance)
+        {
+            Instance = this;
+        }
 
-		if (Instance != this)
-		{
-			print("Too many UiManagers, killing myself");
-			Destroy(this);
-		}
+        if (Instance != this)
+        {
+            print("Too many UiManagers, killing myself");
+            Destroy(this);
+        }
 
-		SetupInputactions();
+        SetupInputactions();
 
-		if (!eventSystem)
-		{
-			eventSystem = EventSystem.current;
-		}
-	}
+        if (!eventSystem)
+        {
+            eventSystem = EventSystem.current;
+        }
+    }
 
-	private void SetupInputactions()
-	{
-		menuBack = InputSystem.actions.FindAction("MenuBack");
-	}
+    private void SetupInputactions()
+    {
+        menuBack = InputSystem.actions.FindAction("MenuBack");
+    }
 
-	private void Update()
-	{
-		if (menuBack.WasPressedThisFrame())
-		{
-			CloseCurrentPanel();
-		}
-	}
+    private void Update()
+    {
+        if (menuBack.WasPressedThisFrame())
+        {
+            CloseCurrentPanel();
+        }
+    }
 
-	public void AddNewPanel(GameObject newPanel)
-	{
-		uiStack.AddPanel(newPanel);
+    public void AddNewPanel(GameObject newPanel)
+    {
+        uiStack.AddPanel(newPanel);
+        SetActiveButton(newPanel);
+    }
 
-		var defButton = newPanel.GetComponentInChildren<DefaultButton>();
+    public void CloseCurrentPanel()
+    {
+        var newPanel = uiStack.RemovePanel();
 
-		if (defButton)
-		{
-			eventSystem.firstSelectedGameObject = defButton.GetButton();
-		}
-	}
+        if (newPanel != null)
+        {
+            SetActiveButton(newPanel);
+        }
+    }
 
-	public void CloseCurrentPanel()
-	{
-		uiStack.RemovePanel();
-	}
+    private void SetActiveButton(GameObject panel)
+    {
+        var defButton = panel.GetComponentInChildren<DefaultButton>();
+
+        if (defButton)
+        {
+            eventSystem.firstSelectedGameObject = defButton.GetButton();
+            eventSystem.SetSelectedGameObject(defButton.GetButton());
+            eventSystem.UpdateModules();
+        }
+    }
 }

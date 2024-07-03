@@ -63,6 +63,7 @@ public class HatMenuManager : MonoBehaviour
             var currentIndex = currentPage * entries.Count + pagePosition;
             var currentEntry = entries[pagePosition];
 
+            //not available
             if (currentIndex >= availableHats.Count)
             {
                 SetupEntry(currentEntry, emptyHat, false);
@@ -70,7 +71,7 @@ public class HatMenuManager : MonoBehaviour
 
             else
             {
-                //find if unlocked
+                //find if unlocked, unlocked true is placeholder for unlocke system
                 var unlocked = true;
                 SetupEntry(currentEntry, availableHats[currentIndex], unlocked);
             }
