@@ -13,7 +13,7 @@ public class VibrationHelper : MonoBehaviour
     public float smallVibrationTime = 0.1f;
     public float smallVibrationPower = 0.1f;
 
-    private void Start()
+    private void Awake()
     {
         DontDestroyOnLoad(this);
 

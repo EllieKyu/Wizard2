@@ -70,11 +70,11 @@ public class PlayerShoot : MonoBehaviour
         //if using MKB
         if (currentDevice.displayName == "Mouse" || currentDevice.displayName == "Keyboard")
         {
-            //if you remove the top line aiming breaks, for no fucking reason. I hate programming
             myTargetPosition = Input.mousePosition;
             myTargetPosition = Camera.main.ScreenToWorldPoint(new Vector3(myTargetPosition.x, myTargetPosition.y, 0.0f));
         }
 
+        //if using gamepad hopefully
         else
         {
             var aim = aimAction.ReadValue<Vector2>().normalized;
@@ -111,7 +111,6 @@ public class PlayerShoot : MonoBehaviour
         {
             VibrationHelper.Instance.SmallVibration();
         }
-
     }
 
     public void AddBullet()
