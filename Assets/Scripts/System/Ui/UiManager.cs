@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,6 +14,10 @@ public class UiManager : MonoBehaviour
     public InputAction menuBack;
 
     private InputDevice currentDevice;
+
+    private bool panelOpenedThisFrame = false;
+
+    public int NumberOfActivePanels => uiStack.GetStackCount();
 
     void Start()
     {
@@ -47,28 +52,12 @@ public class UiManager : MonoBehaviour
             CloseCurrentPanel();
         }
 
-        InputSystem.onActionChange += (obj, change) =>
+        if (InputDeciveHelper.Instance.IsUsingGamepad())
         {
-            if (change == InputActionChange.ActionPerformed)
+
+            if (eventSystem.currentSelectedGameObject == null)
             {
-                var inputAction = (InputAction)obj;
-                var lastControl = inputAction.activeControl;
-                var lastDevice = lastControl.device;
-
-                currentDevice = lastDevice;
-
-                print(lastDevice.displayName);
-            }
-        };
-
-        if (currentDevice != null)
-        {
-            if (currentDevice.displayName != "Mouse")
-            {
-                if (eventSystem.currentSelectedGameObject == null)
-                {
-                    eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
-                }
+                eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
             }
         }
     }
@@ -77,15 +66,39 @@ public class UiManager : MonoBehaviour
     {
         uiStack.AddPanel(newPanel);
         SetActiveButton(newPanel);
+
+        panelOpenedThisFrame = true;
+        StartCoroutine(SetPanelOpenedBool());
+    }
+
+    IEnumerator SetPanelOpenedBool()
+    {
+        yield return new WaitForSeconds(0);
+        panelOpenedThisFrame = false;
     }
 
     public void CloseCurrentPanel()
     {
+        if (panelOpenedThisFrame)
+        {
+            return;
+        }
+
         var newPanel = uiStack.RemovePanel();
 
         if (newPanel != null)
         {
             SetActiveButton(newPanel);
+        }
+    }
+
+    public void ForceCloseAllPanels()
+    {
+        var returnPanel = uiStack.RemovePanel();
+
+        if (returnPanel)
+        {
+            ForceCloseAllPanels();
         }
     }
 

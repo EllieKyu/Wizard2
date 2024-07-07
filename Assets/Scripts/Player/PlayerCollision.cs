@@ -135,7 +135,7 @@ public class PlayerCollision : MonoBehaviour
         //OMEGA PRONE TO BUGS
         //CameraFollow.Instance.UpdateTarget(transform.GetChild(0).transform);
 
-        if (inputDevice.displayName == "Mouse" || inputDevice.displayName == "Keyboard")
+        if (!InputDeciveHelper.Instance.IsUsingGamepad())
         {
             retryText.text = mkbRetryText;
         }

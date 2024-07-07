@@ -64,6 +64,11 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootBullet()
     {
+        if (PauseManager.Instance.IsPaused)
+        {
+            return;
+        }
+
         Quaternion rotation = Quaternion.identity;
         Vector3 position = Vector3.zero;
 

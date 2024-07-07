@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 
 public class UiStack : MonoBehaviour
 {
@@ -21,21 +22,38 @@ public class UiStack : MonoBehaviour
     {
         DisableStack();
         panelStack.Push(newPanel);
+        newPanel.SetActive(true);
     }
 
     public GameObject RemovePanel()
     {
-        if (panelStack.Count <= 1)
+        if (panelStack.Count == 0)
         {
             Debug.Log("The UI stack is empty", gameObject);
             return null;
         }
 
-        var g = panelStack.Pop();
-        g.SetActive(false);
+        var g = panelStack.Peek();
 
-        ActivateTopStack();
-        return panelStack.Peek();
+        if (g.GetComponentInChildren<KeepUIActive>())
+        {
+            return null;
+        }
+
+        else
+        {
+            g.SetActive(false);
+            panelStack.Pop();
+
+            if (panelStack.Count == 0)
+            {
+                Debug.Log("The UI stack is empty", gameObject);
+                return null;
+            }
+
+            ActivateTopStack();
+            return panelStack.Peek();
+        }
     }
 
     private void ActivateTopStack()

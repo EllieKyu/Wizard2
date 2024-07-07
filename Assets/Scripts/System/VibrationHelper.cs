@@ -59,21 +59,43 @@ public class VibrationHelper : MonoBehaviour
 
     private void ResetMotor()
     {
+        if (Gamepad.current == null)
+        {
+            return;
+        }
+
         Gamepad.current.SetMotorSpeeds(0, 0);
     }
 
     private IEnumerator SmallVibrate()
     {
-        Gamepad.current.SetMotorSpeeds(0, smallVibrationPower);
-        yield return new WaitForSeconds(smallVibrationTime);
-        Gamepad.current.SetMotorSpeeds(0, 0);
+        if (Gamepad.current == null)
+        {
+            yield return null;
+        }
+
+        else
+        {
+            Gamepad.current.SetMotorSpeeds(0, smallVibrationPower);
+            yield return new WaitForSeconds(smallVibrationTime);
+            Gamepad.current.SetMotorSpeeds(0, 0);
+        }
     }
 
     private IEnumerator BigVibrate()
     {
-        Gamepad.current.SetMotorSpeeds(bigVibrationPower, bigVibrationPower);
-        yield return new WaitForSeconds(bigVibrationTime);
-        Gamepad.current.SetMotorSpeeds(0, 0);
+        if (Gamepad.current == null)
+        {
+            yield return null;
+        }
+
+        else
+        {
+
+            Gamepad.current.SetMotorSpeeds(bigVibrationPower, bigVibrationPower);
+            yield return new WaitForSeconds(bigVibrationTime);
+            Gamepad.current.SetMotorSpeeds(0, 0);
+        }
     }
 
     private void OnApplicationQuit()

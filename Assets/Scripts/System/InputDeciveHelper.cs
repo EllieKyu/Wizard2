@@ -39,6 +39,11 @@ public class InputDeciveHelper : MonoBehaviour
 
     public bool IsUsingGamepad()
     {
+        if (currentDevice == null)
+        {
+            return false;
+        }
+
         return currentDevice.displayName != "Keyboard" && currentDevice.displayName != "Mouse";
     }
 }
